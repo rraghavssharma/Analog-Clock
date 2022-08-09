@@ -14,7 +14,7 @@ yunit = radius * sin(theta) + y;
 h = plot (xunit,yunit);
 
 %change radius to 8, so that the number hours of the clock, don't touch the rim
-%String is plotting the number hours on the clock
+%String is plotting the number hours on the clock (1,2,3,4,5...)
 radius=8;
 string=[1];
 %plots number hours of the clock by modifying the two variables above
@@ -38,11 +38,10 @@ while(1)
         hr= c(1,1);
     end
     
-    %minute and second hand are of the same length cos is multiplied by 5,
+    %minute and second hand are of the same length cos is multiplied by 6,
     %hour hand is multiplying cos by 3, therefore the hour hand is shorter.
     min1 = ceil(min/12);
-
-    theta = (hr*pi)/6 + (min*pi)/30;%In 1 hour, the hour hand rotates by 6 degrees
+    theta = (hr*pi)/6 + (min1*pi)/30;%In 1 hour, the hour hand rotates by 6 degrees
     %plots hour hand
     f = figure(1); hold on;
     ytemp = 3*cos(theta); Y = [0 ytemp];
@@ -51,16 +50,15 @@ while(1)
     
     theta1 = (min*pi)/30;%In 1 minute, the minute hand rotates by 6 degrees
     %plots minute hand
-    ytemp1 = 5*cos(theta1); Y1 = [0 ytemp1];
+    ytemp1 = 6*cos(theta1); Y1 = [0 ytemp1];
     xtemp1 = 3*sin(theta1); X1 = [0 xtemp1];
     p1=plot(X1, Y1); hold on;
 
     theta2 = (sec*pi)/30;%In 1 second, the second hand rotates by 6 degrees
     %plots second hand
-    ytemp2 = 5*cos(theta2); Y2 = [0 ytemp2];
+    ytemp2 = 6*cos(theta2); Y2 = [0 ytemp2];
     xtemp2 = 3*sin(theta2); X2 = [0 xtemp2];
     p2=plot(X2, Y2);
-
 
     pause(1);%delay of 1 second before continuing inorder to 
     % refresh the image exactly after 1 second
